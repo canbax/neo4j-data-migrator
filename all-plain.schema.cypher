@@ -1,0 +1,13 @@
+CREATE INDEX FOR (node:Movie) ON (node.tagline);
+CREATE INDEX FOR (node:Movie) ON (node.released);
+CREATE INDEX FOR (node:Person) ON (node.name);
+CREATE INDEX FOR (node:Movie) ON (node.imdbRating);
+CREATE INDEX FOR (node:User) ON (node.name);
+CREATE INDEX FOR (node:Movie) ON (node.title);
+CREATE INDEX FOR (node:Movie) ON (node.year);
+CREATE INDEX FOR (node:Movie) ON (node.imdbId);
+CREATE CONSTRAINT ON (node:Movie) ASSERT (node.movieId) IS UNIQUE;
+CREATE CONSTRAINT ON (node:Movie) ASSERT (node.tmdbId) IS UNIQUE;
+CREATE CONSTRAINT ON (node:Genre) ASSERT (node.name) IS UNIQUE;
+CREATE CONSTRAINT ON (node:Person) ASSERT (node.tmdbId) IS UNIQUE;
+CREATE CONSTRAINT ON (node:User) ASSERT (node.userId) IS UNIQUE;
