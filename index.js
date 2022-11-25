@@ -37,7 +37,7 @@ async function execute(queries, step) {
     try {
       let cy = "";
       for (let j = 0; j < step; j++) {
-        cy += queries[i - j + 1] + "\n";
+        cy += queries[i + j] + "\n";
       }
       await session.run(cy);
     } catch (e) {
@@ -52,4 +52,8 @@ async function execute(queries, step) {
   driver.close();
 }
 
-execute(cypherQueries, 4);
+// execute(cypherQueries, 4);
+const start = Number(process.argv[2]);
+const end = Number(process.argv[3]);
+console.log("processing from ", start, "to", end);
+execute(cypherQueries.slice(start, end), 4);
